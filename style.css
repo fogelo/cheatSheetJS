@@ -1,0 +1,30 @@
+body {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.div-outer {
+    margin: 0 auto;
+    border: 10px solid grey;
+    box-sizing: border-box;
+    height: 300px;
+    width: 500px;
+    background-color: azure;
+    overflow: scroll;
+}
+
+.div-inner {
+    position: relative;
+    background-color: khaki;
+    height: 1000px;
+    width: 1000px;
+}
+
+.div-inner-inner {
+    background-color: aqua;
+    height: 30px;
+    width: 50px;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
