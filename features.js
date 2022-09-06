@@ -7,3 +7,15 @@ function useArgs() {
 }
 
 useArgs(1, 2, 3, 4, 'hello')
+
+
+// не знал что можно сделать такой цикл с помощью объекта Date
+function documentClickHandler() {
+    console.log('CLICK!!!');
+}
+document.addEventListener('click', documentClickHandler);
+function a() {
+    const fiveSecondsLater = new Date().getTime() + 5000;
+    while (new Date().getTime() < fiveSecondsLater) {}
+}
+a();

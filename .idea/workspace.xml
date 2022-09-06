@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/coordinates.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="координты и размеры">
+      <change afterPath="$PROJECT_DIR$/sandbox2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -57,6 +56,7 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/home/dzhamilya/Desktop/github/cheatSheetJS",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.JavaScript",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -114,8 +114,17 @@
       <workItem from="1657970868933" duration="33000" />
       <workItem from="1660205598303" duration="13000" />
       <workItem from="1662359626950" duration="8980000" />
-      <workItem from="1662369104636" duration="4255000" />
+      <workItem from="1662369104636" duration="5724000" />
+      <workItem from="1662385417730" duration="2221000" />
     </task>
+    <task id="LOCAL-00001" summary="координты и размеры">
+      <created>1662374481950</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662374481950</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +140,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="координты и размеры" />
+    <option name="LAST_COMMIT_MESSAGE" value="координты и размеры" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
