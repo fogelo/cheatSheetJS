@@ -55,21 +55,48 @@
     <script type='module' src="./for-debug.js"></script>-->
 
 <!--coordinates-start-->
-    <!--<h2>coordinates</h2>-->
-    <!--<button class="btn-get">getSomething</button>-->
-    <!--<div class="div-outer">-->
-    <!--    <div class="div-inner">-->
-    <!--        <div class="div-inner-inner"></div>-->
-    <!--    </div>-->
-    <!--</div>-->
-    <!--<script type='module' src="./coordinates.js"></script>-->
+<!--<h2>coordinates</h2>-->
+<!--<button class="btn-get">getSomething</button>-->
+<!--<div class="div-outer">-->
+<!--    <div class="div-inner">-->
+<!--        <div class="div-inner-inner"></div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<script type='module' src="./coordinates.js"></script>-->
 <!--coordinates-end-->
 
 <!--<h2>sandbox</h2>-->
 <!--<script type='module' src="./sandbox.js"></script>-->
 
+
+<style>
+body * {
+margin: 10px;
+border: 1px solid blue;
+}
+</style>
+
+<form>FORM
+    <div>DIV
+        <p>P</p>
+    </div>
+</form>
+
+<script>
+    for(let elem of document.querySelectorAll('*')) {
+        elem.addEventListener("click", e => alert(`Погружение: ${elem.tagName}`), true);
+        elem.addEventListener("click", e => alert(`Всплытие: ${elem.tagName}`));
+    }
+</script>
+
+<h2>browser</h2>
+<script type="module" src="./browser.js"></script>
+
 <h2>sandbox2</h2>
 <script type='module' src="./sandbox2.js"></script>
+<div class="div">
+    <button class="button">button</button>
+</div>
 
 
 </body>

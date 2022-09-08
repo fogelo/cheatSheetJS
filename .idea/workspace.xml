@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="координты и размеры">
-      <change afterPath="$PROJECT_DIR$/sandbox2.js" afterDir="false" />
+    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="цикл с помощью объекта Date">
+      <change afterPath="$PROJECT_DIR$/browser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conditions.js" beforeDir="false" afterPath="$PROJECT_DIR$/conditions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/function.js" beforeDir="false" afterPath="$PROJECT_DIR$/function.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox2.js" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox2.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,23 +52,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/dzhamilya/Desktop/github/cheatSheetJS",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.JavaScript",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dzhamilya/Desktop/github/cheatSheetJS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.JavaScript&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/img" />
     </key>
   </component>
   <component name="RunManager">
@@ -115,7 +119,8 @@
       <workItem from="1660205598303" duration="13000" />
       <workItem from="1662359626950" duration="8980000" />
       <workItem from="1662369104636" duration="5724000" />
-      <workItem from="1662385417730" duration="2221000" />
+      <workItem from="1662385417730" duration="18068000" />
+      <workItem from="1662632447060" duration="1455000" />
     </task>
     <task id="LOCAL-00001" summary="координты и размеры">
       <created>1662374481950</created>
@@ -124,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662374481950</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="цикл с помощью объекта Date">
+      <created>1662466501798</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662466501798</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,7 +155,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="координты и размеры" />
-    <option name="LAST_COMMIT_MESSAGE" value="координты и размеры" />
+    <MESSAGE value="цикл с помощью объекта Date" />
+    <option name="LAST_COMMIT_MESSAGE" value="цикл с помощью объекта Date" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
