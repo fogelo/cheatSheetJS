@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="цикл с помощью объекта Date">
-      <change afterPath="$PROJECT_DIR$/browser.js" afterDir="false" />
+    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="some changes">
+      <change afterPath="$PROJECT_DIR$/events.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conditions.js" beforeDir="false" afterPath="$PROJECT_DIR$/conditions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/function.js" beforeDir="false" afterPath="$PROJECT_DIR$/function.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox2.js" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox2.js" afterDir="false" />
     </list>
@@ -120,7 +118,9 @@
       <workItem from="1662359626950" duration="8980000" />
       <workItem from="1662369104636" duration="5724000" />
       <workItem from="1662385417730" duration="18068000" />
-      <workItem from="1662632447060" duration="1455000" />
+      <workItem from="1662632447060" duration="5704000" />
+      <workItem from="1662706860242" duration="599000" />
+      <workItem from="1662723767858" duration="1276000" />
     </task>
     <task id="LOCAL-00001" summary="координты и размеры">
       <created>1662374481950</created>
@@ -136,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662466501798</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="some changes">
+      <created>1662636816189</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1662636816189</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,7 +163,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="координты и размеры" />
     <MESSAGE value="цикл с помощью объекта Date" />
-    <option name="LAST_COMMIT_MESSAGE" value="цикл с помощью объекта Date" />
+    <MESSAGE value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
