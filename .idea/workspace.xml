@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="some changes">
-      <change afterPath="$PROJECT_DIR$/events.js" afterDir="false" />
+    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="some changes2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox2.js" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox2.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +117,8 @@
       <workItem from="1662385417730" duration="18068000" />
       <workItem from="1662632447060" duration="5704000" />
       <workItem from="1662706860242" duration="599000" />
-      <workItem from="1662723767858" duration="1276000" />
+      <workItem from="1662723767858" duration="3099000" />
+      <workItem from="1662991459701" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="координты и размеры">
       <created>1662374481950</created>
@@ -143,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662636816189</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="some changes2">
+      <created>1662732943975</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662732943975</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +169,8 @@
     <MESSAGE value="координты и размеры" />
     <MESSAGE value="цикл с помощью объекта Date" />
     <MESSAGE value="some changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
+    <MESSAGE value="some changes2" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

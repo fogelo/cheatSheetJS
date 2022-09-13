@@ -375,6 +375,7 @@ element4.style.cssText = `
     color: red;
 `;
 
+
 //? Вычисление стилей. getComputedStyle(element, [pseudo]) - работает даже когда стили не заданы явно
 //получаем
 const element5 = document.querySelector('.lesson__item-list_red')
