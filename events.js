@@ -21,6 +21,7 @@ const alert2 = (e, i) => {
     // e.stopImmediatePropagation() - остановит распространение дальнейшее распространение и обработку остальных событий на текущем элеменете
 }
 
+
 for (let i = 0; i < elem.length; i++) {
     elem[i].addEventListener("click", (e) => alert1(e, i), true)
     elem[i].addEventListener("click", (e) => alert2(e, i))
