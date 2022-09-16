@@ -28,3 +28,9 @@ body {
     left: 100px;
     top: 100px;
 }
+
+
+/*Делегирование событий*/
+.highlight {
+    background: #ff8282;
+}

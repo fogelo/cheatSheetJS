@@ -73,7 +73,9 @@
 
 
 <!--events-start-->
-<h2>browser</h2>
+<h2>events</h2>
+
+<!--§Всплытие и погружение-->
 <form class="test-bubbling" style="border: 1px solid;"> form
     <div class="test-bubbling" style="border: 1px solid;"> div
         <p class="test-bubbling" style="border: 1px solid;">
@@ -82,6 +84,30 @@
     </div>
 </form>
 
+<!--§Делегирование событий-->
+<table class="table" data-name="name" data-type="type">
+    <tr>
+        <th colspan="3">Квадрат <em>Bagua</em>: Направление, Элемент, Цвет, Значение</th>
+    </tr>
+    <tr>
+        <td>Северо-Запад</td>
+        <td>Север</td>
+        <td>Северо-Восток</td>
+    </tr>
+    <tr>
+        <td>Запад</td>
+        <td>Центр</td>
+        <td>Восток</td>
+    </tr>
+    <tr>
+        <td>Юго-Запад</td>
+        <td>Юг</td>
+        <td>Юго-Восток</td>
+    </tr>
+</table>
+
+<!--§Генерация пользовательских событий-->
+<button id="button-click">click me</button>
 <script type="module" src="./events.js"></script>
 <!--events-end-->
 
