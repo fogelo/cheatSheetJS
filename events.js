@@ -7,17 +7,30 @@
 * */
 
 
-const elem = document.querySelectorAll(".test-bubbling")
-for (let i = 0; i < elem.length; i++) {
-    elem[i].addEventListener("click", () => alert(`Погружение: ${elem[i].tagName}`), true)
-    elem[i].addEventListener("click", () => alert(`Погружение: ${elem[i].tagName}`))
+//§ всплытие и погружение
 
-console.log(elem)
+const elem = document.querySelectorAll(".test-bubbling")
+
+const alert1 = (e, i) => {
+    alert(`Погружение: ${elem[i].tagName}`)
+
+}
+const alert2 = (e, i) => {
+    alert(`Всплытие: ${elem[i].tagName}`)
+    // e.stopPropagation() - остановит дальнейшее распространение события
+    // e.stopImmediatePropagation() - остановит распространение дальнейшее распространение и обработку остальных событий на текущем элеменете
+}
+
+for (let i = 0; i < elem.length; i++) {
+    elem[i].addEventListener("click", (e) => alert1(e, i), true)
+    elem[i].addEventListener("click", (e) => alert2(e, i))
+    // e.target - самый глубокий элемент на котором произошло событие
+    // e.currentTarget - элемент на котором в данный момент сработал обработчик (равен this)
+}
+
 
 // addEventListener и removeEventListener
 // здесь будет шпаргалка по событиям, погружение и всплытие, делегирование
-// свойство target и currentTarget
-// preventDefault, stopPropagation
 // какие бывают события и что с помощью них можно сделать
 // свойство relatedTarget для mouseover/out, mouseenter/leave
 
