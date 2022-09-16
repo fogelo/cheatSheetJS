@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="some changes2">
+    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="Всплытие и погружение">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/events.js" afterDir="false" />
     </list>
@@ -55,6 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Comments/Keywords" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -120,7 +121,7 @@
       <workItem from="1662723767858" duration="3099000" />
       <workItem from="1662991459701" duration="599000" />
       <workItem from="1663071481305" duration="3249000" />
-      <workItem from="1663313604766" duration="1031000" />
+      <workItem from="1663313604766" duration="2181000" />
     </task>
     <task id="LOCAL-00001" summary="координты и размеры">
       <created>1662374481950</created>
@@ -157,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663071519144</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Всплытие и погружение">
+      <created>1663314676156</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1663314676156</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +188,8 @@
     <MESSAGE value="some changes" />
     <MESSAGE value="some changes2" />
     <MESSAGE value="space" />
-    <option name="LAST_COMMIT_MESSAGE" value="space" />
+    <MESSAGE value="Всплытие и погружение" />
+    <option name="LAST_COMMIT_MESSAGE" value="Всплытие и погружение" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
