@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="check">
+    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="делегирование событий, действия браузера по умолчанию, генерация пользовательских событий">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/events.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +122,8 @@
       <workItem from="1662723767858" duration="3099000" />
       <workItem from="1662991459701" duration="599000" />
       <workItem from="1663071481305" duration="3249000" />
-      <workItem from="1663313604766" duration="10058000" />
+      <workItem from="1663313604766" duration="12956000" />
+      <workItem from="1663574814560" duration="2103000" />
     </task>
     <task id="LOCAL-00001" summary="координты и размеры">
       <created>1662374481950</created>
@@ -181,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663315856139</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="делегирование событий, действия браузера по умолчанию, генерация пользовательских событий">
+      <created>1663326359296</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1663326359296</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,7 +213,8 @@
     <MESSAGE value="space" />
     <MESSAGE value="Всплытие и погружение" />
     <MESSAGE value="check" />
-    <option name="LAST_COMMIT_MESSAGE" value="check" />
+    <MESSAGE value="делегирование событий, действия браузера по умолчанию, генерация пользовательских событий" />
+    <option name="LAST_COMMIT_MESSAGE" value="делегирование событий, действия браузера по умолчанию, генерация пользовательских событий" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
