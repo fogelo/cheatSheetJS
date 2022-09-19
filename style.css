@@ -34,3 +34,14 @@ body {
 .highlight {
     background: #ff8282;
 }
+
+/*drag and drop*/
+.football-gate {
+    width: 100px;
+    height: 100px;
+    background: gray;
+}
+
+.droppable {
+    background: #ffa9a9;
+}

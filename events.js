@@ -91,15 +91,14 @@ buttonClick.addEventListener("click", () => alert("click"))
 
 //генерируем событие кодом (чтобы произошло можно задиспачить этот event внутри какого-то условия)
 let event = new Event("click")
-buttonClick.dispatchEvent(event) //вызовается обработчик который мы повешали на кнопку "кодом"
+// buttonClick.dispatchEvent(event) //вызовается обработчик который мы повешали на кнопку "кодом"
 
 // event.isTrusted - для отличия событий порождаемых реальными действиями пользователся или генерируемые кодом
 
 
-
 //§ События
 
-//@события мыши
+//@ основные события мыши
 
 /*
 * 1) mousedown/mouseup - сработают и для левой и для правой кнопки мыши
@@ -129,16 +128,90 @@ buttonClick.dispatchEvent(event) //вызовается обработчик к�
 //вот так можно отключить возможность выделения текста на элементе
 const selection = document.querySelector(".selection")
 
-selection.addEventListener("mousedown", (e)=>{
+selection.addEventListener("mousedown", (e) => {
     e.preventDefault()
 })
 
-// какие бывают события и что с помощью них можно сделать
-// свойство relatedTarget для mouseover/out, mouseenter/leave
-//drag and drop события
+//@ drag and drop события
+
+//dragstart и dragend - позволяют решать простые задачи. Например можно перетащить файл в браузер так, что js получит доступ к его содержимому
+//mousedown, mousemove и mouseup - это основа drag and drop
+
+const ball = document.querySelector(".ball")
+const gate = document.querySelector(".football-gate")
+let shiftX = 0
+let shiftY = 0
+
+const moveAt = (pageX, pageY) => {
+    ball.style.left = pageX - shiftX + "px"
+    ball.style.top = pageY - shiftY + "px"
+}
+
+let currentDroppable = null;
+const onMouseMove = (e) => {
+    moveAt(event.pageX, event.pageY);
+
+    // ball.hidden = true;
+    let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+    // ball.hidden = false;
+
+    // событие mousemove может произойти и когда указатель за пределами окна
+    // (мяч перетащили за пределы экрана)
+
+    // если clientX/clientY за пределами окна, elementFromPoint вернёт null
+    if (!elemBelow) return;
+
+    // потенциальные цели переноса помечены классом droppable (может быть и другая логика)
+    let droppableBelow = elemBelow.closest('.droppable');
+
+    if (currentDroppable != droppableBelow) {
+        // мы либо залетаем на цель, либо улетаем из неё
+        // внимание: оба значения могут быть null
+        //   currentDroppable=null,
+        //     если мы были не над droppable до этого события (например, над пустым пространством)
+        //   droppableBelow=null,
+        //     если мы не над droppable именно сейчас, во время этого события
+
+        if (currentDroppable) {
+            // логика обработки процесса "вылета" из droppable (удаляем подсветку)
+            leaveDroppable(currentDroppable);
+        }
+        currentDroppable = droppableBelow;
+        if (currentDroppable) {
+            // логика обработки процесса, когда мы "влетаем" в элемент droppable
+            enterDroppable(currentDroppable);
+        }
+    }
+}
+
+function enterDroppable(elem) {
+    elem.style.background = 'pink';
+}
+
+function leaveDroppable(elem) {
+    elem.style.background = '';
+}
+
+ball.addEventListener("mousedown", (e) => {
+    ball.style.position = "absolute"
+    ball.style.zIndex = "1000"
+    document.body.append(ball)
+
+    shiftX = e.clientX - ball.getBoundingClientRect().left
+    shiftY = e.clientY - ball.getBoundingClientRect().top
+
+    document.addEventListener("mousemove", onMouseMove)
+})
+
+ball.addEventListener("mouseup", () => document.removeEventListener("mousemove", onMouseMove))
+
+ball.ondragstart = () => false //отключение собственного drag and drop браузера
+
+
+
+
+
 //keydown и keyup
-
-
 //все это можно почитать на learn js
 
 
