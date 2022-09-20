@@ -147,55 +147,55 @@ const moveAt = (pageX, pageY) => {
     ball.style.top = pageY - shiftY + "px"
 }
 
-let currentDroppable = null;
-const onMouseMove = (e) => {
-    moveAt(event.pageX, event.pageY);
+function enterElement(elem) {
+    elem.classList.add("droppable");
+}
 
-    // ball.hidden = true;
-    let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
-    // ball.hidden = false;
+function leaveElement(elem) {
+    elem.classList.remove("droppable");
+}
+
+// потенциальная цель переноса, над которой мы пролетаем прямо сейчас
+let currentElement = null;
+
+const onMouseMove = (e) => {
+    moveAt(e.pageX, e.pageY)
+
+    ball.hidden = true // скрываем ball, чтобы посмотреть что под ним
+    let elemBelow = document.elementFromPoint(e.clientX, e.clientY) //вернеть элемент под курсором с наибольшим z индексом
+    ball.hidden = false; // возвращаем ball обратно
 
     // событие mousemove может произойти и когда указатель за пределами окна
-    // (мяч перетащили за пределы экрана)
-
     // если clientX/clientY за пределами окна, elementFromPoint вернёт null
-    if (!elemBelow) return;
+    if (!elemBelow) return
 
-    // потенциальные цели переноса помечены классом droppable (может быть и другая логика)
-    let droppableBelow = elemBelow.closest('.droppable');
+    // потенциальные цели переноса помечены классом football-gate (может быть и другая логика)
+    let gate = elemBelow.closest(".football-gate") //closest ищет ближайшего предка elemBelow (начиная с elemBelow) c переданным в качестве параметра селектором
 
-    if (currentDroppable != droppableBelow) {
+    if (currentElement !== gate) { // условие true только когда мы первый раз залетели в область и когда мы с нее ушли
         // мы либо залетаем на цель, либо улетаем из неё
         // внимание: оба значения могут быть null
-        //   currentDroppable=null,
+        //   currentElement=null,
         //     если мы были не над droppable до этого события (например, над пустым пространством)
         //   droppableBelow=null,
         //     если мы не над droppable именно сейчас, во время этого события
 
-        if (currentDroppable) {
+        if (currentElement) {
             // логика обработки процесса "вылета" из droppable (удаляем подсветку)
-            leaveDroppable(currentDroppable);
+            leaveElement(currentElement);
         }
-        currentDroppable = droppableBelow;
-        if (currentDroppable) {
+        currentElement = gate;
+        if (currentElement) {
             // логика обработки процесса, когда мы "влетаем" в элемент droppable
-            enterDroppable(currentDroppable);
+            enterElement(currentElement);
         }
     }
-}
-
-function enterDroppable(elem) {
-    elem.style.background = 'pink';
-}
-
-function leaveDroppable(elem) {
-    elem.style.background = '';
 }
 
 ball.addEventListener("mousedown", (e) => {
     ball.style.position = "absolute"
     ball.style.zIndex = "1000"
-    document.body.append(ball)
+    // document.body.append(ball) //вроде не обязательно
 
     shiftX = e.clientX - ball.getBoundingClientRect().left
     shiftY = e.clientY - ball.getBoundingClientRect().top
@@ -205,13 +205,19 @@ ball.addEventListener("mousedown", (e) => {
 
 ball.addEventListener("mouseup", () => document.removeEventListener("mousemove", onMouseMove))
 
+
 ball.ondragstart = () => false //отключение собственного drag and drop браузера
 
 
+//@  события клавиатуры keydown и keyup
+
+/*
+* 1) keydown/keyup - события при нажатии клавиши и отпускании клавиши
+*   e.code - "физический код клавиши"  // KeyZ (всегда одинаков для одной и той же клавиши)
+*   e.key - символ которые напечатали //z или Z (в зависимости от регистра), z или я (в зависимости от языка)
+* */
 
 
-
-//keydown и keyup
 //все это можно почитать на learn js
 
 
