@@ -68,7 +68,7 @@ const btn = document.querySelector(".btn-get")
 // divElement.scrollHeight - высота div
 
 //вот так можно получить координаты относительно окна браузера и размеры элемента
-// console.log(divInnerInner.getBoundingClientRect())
+// console.log(divInnerInner.getBoundingClientRect())-
 
 //вот так можно найти элемент, которые попадает в заданные координаты
 // console.log(document.elementFromPoint(100, 100))

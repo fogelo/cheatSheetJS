@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="Доделать gate">
+    <list default="true" id="edcd3823-164b-4a40-9ca8-65f7715c1ea3" name="Changes" comment="keydown и keyup 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coordinates.js" beforeDir="false" afterPath="$PROJECT_DIR$/coordinates.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +123,8 @@
       <workItem from="1662991459701" duration="599000" />
       <workItem from="1663071481305" duration="3249000" />
       <workItem from="1663313604766" duration="12956000" />
-      <workItem from="1663574814560" duration="18449000" />
+      <workItem from="1663574814560" duration="19157000" />
+      <workItem from="1663677275298" duration="42323000" />
     </task>
     <task id="LOCAL-00001" summary="координты и размеры">
       <created>1662374481950</created>
@@ -202,7 +203,21 @@
       <option name="project" value="LOCAL" />
       <updated>1663597953212</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="keydown и keyup">
+      <created>1663667818683</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1663667818683</updated>
+    </task>
+    <task id="LOCAL-00013" summary="keydown и keyup 2">
+      <created>1663667904220</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1663667904220</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +245,9 @@
     <MESSAGE value="делегирование событий, действия браузера по умолчанию, генерация пользовательских событий" />
     <MESSAGE value="Основыне события мыши" />
     <MESSAGE value="Доделать gate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Доделать gate" />
+    <MESSAGE value="keydown и keyup" />
+    <MESSAGE value="keydown и keyup 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="keydown и keyup 2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
