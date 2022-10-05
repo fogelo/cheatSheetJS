@@ -169,9 +169,9 @@ console.log(arr)*/
 /* 
 let arr = ['html', 'css', 'javascript', 'react']
 
-let arr3=arr.slice(1,3)
-console.log(arr3)
-console.log(arr)
+// let arr3=arr.slice(1,3)
+// console.log(arr3)
+// console.log(arr)
 
 //скопирует весь массив если не передавать аргументов
 let arr2 = arr.slice()
