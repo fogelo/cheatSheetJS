@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../style.css" />
+    <title>events</title>
+  </head>
+  <body>
+    <h2>events</h2>
+
+    <!--§Всплытие и погружение-->
+    <form class="test-bubbling" style="border: 1px solid">
+      form
+      <div class="test-bubbling" style="border: 1px solid">
+        div
+        <p class="test-bubbling" style="border: 1px solid">p</p>
+      </div>
+    </form>
+
+    <!--§Делегирование событий-->
+    <table class="table" data-name="name" data-type="type">
+      <tr>
+        <th colspan="3">Квадрат <em>Bagua</em>: Направление, Элемент, Цвет, Значение</th>
+      </tr>
+      <tr>
+        <td>Северо-Запад</td>
+        <td>Север</td>
+        <td>Северо-Восток</td>
+      </tr>
+      <tr>
+        <td>Запад</td>
+        <td>Центр</td>
+        <td>Восток</td>
+      </tr>
+      <tr>
+        <td>Юго-Запад</td>
+        <td>Юг</td>
+        <td>Юго-Восток</td>
+      </tr>
+    </table>
+
+    <!--§Генерация пользовательских событий-->
+    <button id="button-click">click me</button>
+
+    <!--§События-->
+    <div class="selection">выделение</div>
+
+    <!--§drag and drop-->
+
+    <div class="football-gate"></div>
+    <img
+      src="https://js.cx/clipart/ball.svg"
+      style="cursor: pointer; position: absolute; z-index: 1000; left: 151px; top: 93px"
+      width="40"
+      height="40"
+      id="ball"
+      class="ball"
+      alt="ball"
+    />
+
+    <script src="./events.js"></script>
+  </body>
+</html>

@@ -226,7 +226,6 @@ console.log(count())
 
 
 
-
 //что такое лексическое окружение и области видимости
 
 
@@ -273,3 +272,41 @@ JS идёт от самой глубоко вложенной ОВ наружу,
 /* 
 -this в стрелочной функции будет равен this ее внешней функции (у нее своего нет и он будет искаться в области видимости по цепочке)
 */
+
+
+/* console.log('================================ Замыкание ================================')
+//§ЗАМЫКАНИЕ https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures
+
+//Функция замкнута в своем лексическом окружении
+function makeClosure() {
+    let myName = 'Anton'
+    return function showName() {
+        console.log(myName)
+    }
+}
+
+let getMyName = makeClosure()
+console.log(getMyName())
+ */
+
+
+
+/* 
+//§ Метод bind()
+let user = {
+    firstName: "Вася",
+    sayHi() {
+        console.log(`Привет, ${this.firstName}!`);
+
+    }
+}
+// вот так контекст потеряется
+setTimeout(user.sayHi, 1000); // Привет, undefined!
+
+// а так не потеряется (метод bind)
+setTimeout(user.sayHi.bind(user), 1000); // Привет, Вася!
+
+ // и так не потеряется (анонимная стрелочная функция)
+setTimeout(()=>user.sayHi(), 1000); // Привет, Вася!
+
+ */

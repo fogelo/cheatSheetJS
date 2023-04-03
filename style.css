@@ -1,8 +1,31 @@
 body {
     box-sizing: border-box;
     margin: 0 auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 20px;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    transition: background-color 0.2s;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+a:hover {
+    /* color: rgb(49, 0, 183); */
+    background-color: antiquewhite;
+}
+
+
+.links {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .div-outer {
     margin: 0 auto;
     border: 10px solid grey;
@@ -44,4 +67,7 @@ body {
 
 .droppable {
     background: #ffa9a9;
+}
+.aaa {
+    color: #8fd2ff;
 }

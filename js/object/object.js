@@ -219,8 +219,8 @@ city.title = 'Moscow'
 city['citizensCount'] = 100
 
 //можно даже map вот так у массива вызвать
-let users = [1, 2, 3, 4, 5]
-users['map']((item) => {
+let users2 = [1, 2, 3, 4, 5]
+users2['map']((item) => {
     console.log(item)
 })
 

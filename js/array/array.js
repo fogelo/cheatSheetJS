@@ -1,8 +1,7 @@
 //§ Добавление и удаление элементов
 //§ Поиск
 //§ Преобразование
-
-//§     for - для перебора элементов массива // items
+//§    for - для перебора элементов массива // items
 
 /* let arr = ['Брайт', 'Нюша', 'Герда']
 
@@ -21,29 +20,32 @@ arr.forEach(function(item, index, arr) {
 
 //§     for...of - для перебора элементов массива
 
-/*let arr = ['Брайт', 'Нюша', 'Герда']
+/* let arr = ['Брайт', 'Нюша', 'Герда']
 
 // проходит по значениям
 for (let item of arr) {
 console.log(item)
-}*/
+} */
 
-/*//@values для работы со значениями значений (хотя он тут избыточен)
+
+/* //@values для работы со значениями значений (хотя он тут избыточен)
 const a = ['a', 'b', 'c'];
 console.log(a.values())
 console.log([...a.values()])
 for (const index of a.values())
-console.log(index);*/
+console.log(index); */
 
-/*//@keys для работы с ключами объекта
+
+/* //@ keys для работы с ключами объекта
 const a = ['a', 'b', 'c'];
 console.log(a.keys())
 console.log([...a.keys()])
 for (const index of a.keys())
-console.log(index)*/
+console.log(index) */
 
 
-/*//@entries для одновременной работы с ключами и их значениями
+
+/*  //@ entries для одновременной работы с ключами и их значениями
 const a = ['a', 'b', 'c'];
 console.log(a.entries())
 console.log([...a.entries()])

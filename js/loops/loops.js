@@ -83,8 +83,8 @@ var fibonacci_series = function (n) {
         return s;
     }
 };
-const result = fibonacci_series(4)
-console.log(result)
+// const result = fibonacci_series(4)
+// console.log(result)
 
 //@ функция складывающая числа с применением Immediately-Invoked Function Expression (IIFE)
 
@@ -137,3 +137,4 @@ console.log(result)
 
 
 
+console.log(11)
