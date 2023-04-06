@@ -188,7 +188,7 @@ console.log('Alan' in users)
 let user1 = {
     name: 'Anton',
     age: 30,
-    lessons: [{title: '1'}, {title: '2'}],
+    lessons: [{ title: '1' }, { title: '2' }],
     address: {
         city: {
             title: 'Moscow'
@@ -205,7 +205,7 @@ let title2 = user1['address']['city']['title']
 let user2 = {
     'name': 'Anton',
     'age': 30,
-    'lessons': [{title: '1'}, {title: '2'}],
+    'lessons': [{ title: '1' }, { title: '2' }],
     'address': {
         'city': {
             'title': 'Moscow'
@@ -246,3 +246,12 @@ for (let i = 0; i < 100; i++) {
 /* 
 Свойства могут быть доступны либо через точечную нотацию (т.е., obj.a), либо через скобочную нотацию (т.е., obj["hello world!"])
 */
+
+// Можно проверить, содержит ли объект некоторое свойство, не запрашивая значение этого свойства:
+var myObject = {
+    a: 2
+};
+("a" in myObject); // true
+("b" in myObject); // false
+myObject.hasOwnProperty("a"); // true
+myObject.hasOwnProperty("b"); // false
