@@ -5,7 +5,6 @@
 
 */
 
-
 /* 
 
 § Цикл событий 
@@ -96,9 +95,6 @@ function response(data) {
 ajax("http://some.url.1", response);
 ajax("http://some.url.2", response); */
 
-
-
-
 /* 
 
 § Обратные вызовы (callback)
@@ -108,9 +104,6 @@ ajax("http://some.url.2", response); */
 
 Наш мозг работает примерно по такому же принципу, что и очередь цикла событий.
 */
-
-
-
 
 // @ Что выведет и почему?
 /* const arr =[]
