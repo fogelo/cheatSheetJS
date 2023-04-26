@@ -105,12 +105,12 @@ ajax("http://some.url.2", response); */
 Наш мозг работает примерно по такому же принципу, что и очередь цикла событий.
 */
 
-// @ Что выведет и почему?
+// @ Пример 1 - Что выведет и почему?
 /* const arr =[]
 arr[1] = 5
 console.log(arr); */
 
-// @ синтаксис getterов и setteroв ES5.1
+// @ Пример 2 - синтаксис getterов и setteroв ES5.1
 /* const a = 1
 c = {
     get bar() {
@@ -120,3 +120,80 @@ c = {
 };
 
 console.log(c.bar); */
+
+// @ Пример 3 - Проверка не прошло ли время когда функцию можно еще вызвать. Написать самостоятельно эту логику.
+/* function timeoutify(fn, delay) {
+  var intv = setTimeout(function () {
+    intv = null;
+    fn(new Error("Timeout!"));
+  }, delay);
+
+  return function () {
+    // тайм-аут еще не случился?
+    if (intv) {
+      clearTimeout(intv);
+      fn.apply(this, arguments);
+    }
+  };
+}
+
+function foo(err, data) {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log(data);
+  }
+} */
+// ajax("http://some.url.1", timeoutify(foo, 500));
+
+// @ Пример 4 - Проверка не прошло ли время когда функцию можно еще вызвать. Написать самостоятельно эту логику.
+
+/* function asyncify(fn) {
+  var orig_fn = fn,
+    intv = setTimeout(function () {
+      intv = null;
+      if (fn) fn();
+    }, 0);
+  fn = null;
+  return function () {
+    // активируется слишком быстро, до срабатывания
+    // таймера `intv`,
+    // обозначающего прохождение асинхронного периода?
+    if (intv) {
+      fn = orig_fn.bind.apply(
+        orig_fn,
+        // добавить `this` обертки в параметры вызова
+        // `bind(..)` и каррировать все переданные
+        // параметры.
+        [this].concat([].slice.call(arguments))
+      );
+    }
+    // асинхронно
+    else {
+      // вызвать исходную функцию
+      orig_fn.apply(this, arguments);
+    }
+  };
+}
+function result(data) {
+  console.log(a);
+}
+var a = 0;
+ajax("..pre-cached-url..", asyncify(result));
+a++; */
+
+/* 
+Обратные вызовы всегда лучше делать асинхронными, этот пример демонстрирует как это можно сделать 
+*/
+
+// § Обещания
+/* 
+
+Недостатки использования обратных вызовов для выраражения асинхронности в прогамме:
+1) осутствие последовательности 
+2) отсутствие доверия
+Как промисы решают этим недостатки?
+*/
+
+// § Ссылки
+// ? https://blog.greenroots.info/task-queue-and-job-queue-deep-dive-into-javascript-event-loop-model
