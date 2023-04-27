@@ -191,9 +191,88 @@ a++; */
 
 Недостатки использования обратных вызовов для выраражения асинхронности в прогамме:
 1) осутствие последовательности 
-2) отсутствие доверия
+2) отсутствие доверия (из-за инверсии управления)
 Как промисы решают этим недостатки?
+
+
+ Promise.all([...]) - получает массив обещаний, и возвращает новое обещание, которое дожидается завершения всех обещаний в массиве. 
 */
+
+// @ Пример 5 - promise - что выведет и почему?
+/* const resolve = () => {
+  return 2;
+};
+
+const promise = new Promise((resolve, reject) => {
+  resolve(1);
+  // reject(2);
+})
+  .then((res) => {
+    console.log(res);
+    throw new Error();
+  })
+  .catch((res) => {
+    console.log(res);
+  });
+console.log(promise); */
+
+/* 
+функции resolve и reject - это функции разрешения обещания. resolve - сигнализирует о выполнении, а reject сигнализирует об отказе
+
+*/
+
+// @ Пример 6 -  что выведет и почему? (Псевдокод)
+/* p.then(function () {
+  p.then(function () {
+    console.log("C");
+  });
+  console.log("A");
+});
+p.then(function () {
+  console.log("B");
+}); */
+// A B C
+
+// @ Пример 7 -  что выведет и почему?
+let p3 = new Promise( function(resolve,reject){
+  resolve( "B" );
+} );
+
+let p1 = new Promise( function(resolve,reject){
+  resolve( p3 );
+} );
+
+let p2 = new Promise( function(resolve,reject){
+  resolve( "A" );
+} );
+p1.then( function(v){
+  console.log( v );
+} );
+
+p2.then( function(v){
+  console.log( v );
+} );
+
+
+/* 
+
+согласно определенному поведению происходит распаковка p3 в p1, но асинхронно, так что обратный вызов p1 оказывается позади обратного вызова p2 
+в асинхронной очереди заданий. 
+
+Вообще говоря, хорошая практика программирования не реко- мендует программировать так, чтобы зависеть от порядка несколь- ких обратных вызовов.
+*/
+
+
+/* 
+
+обещания определяются так, чтобы они могли разрешиться только один раз. Если по какой-то причине код создания обещания попытается многократно 
+вызвать resolve или reject или попытается вызвать обе функции, обещание примет только разрешение и незаметно проигнорирует все последующие попытки. 
+*/
+
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => console.log(json))
 
 // § Ссылки
 // ? https://blog.greenroots.info/task-queue-and-job-queue-deep-dive-into-javascript-event-loop-model
