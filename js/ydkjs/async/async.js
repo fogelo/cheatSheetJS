@@ -234,7 +234,7 @@ p.then(function () {
 // A B C
 
 // @ Пример 7 -  что выведет и почему?
-let p3 = new Promise( function(resolve,reject){
+/* let p3 = new Promise( function(resolve,reject){
   resolve( "B" );
 } );
 
@@ -252,7 +252,7 @@ p1.then( function(v){
 p2.then( function(v){
   console.log( v );
 } );
-
+ */
 
 /* 
 
@@ -262,17 +262,112 @@ p2.then( function(v){
 Вообще говоря, хорошая практика программирования не реко- мендует программировать так, чтобы зависеть от порядка несколь- ких обратных вызовов.
 */
 
-
 /* 
-
 обещания определяются так, чтобы они могли разрешиться только один раз. Если по какой-то причине код создания обещания попытается многократно 
 вызвать resolve или reject или попытается вызвать обе функции, обещание примет только разрешение и незаметно проигнорирует все последующие попытки. 
 */
 
+// const todos = new Promise((resolve, reject)=>{
+//   resolve(
 
-fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => response.json())
-      .then(json => console.log(json))
+//   )
+// })
+
+// @ Пример 8 -  что выведет и почему? Демонстрация как race можно использовать для того чтобы ограничить функцию по времени.
+
+/* const foo = () => {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve("foo");
+    }, 10);
+  }); 
+};
+// функция определения тайм-аута для обещания
+function timeoutPromise(delay) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      reject("Timeout!");
+    }, delay);
+  });
+}
+// настройка тайм-аута для `foo()`
+Promise.race([
+  fetch("https://jsonplaceholder.typicode.com/todos/1"), // попытаться выполнить `foo()`
+  foo(),
+  timeoutPromise(1000), // выделить 3 секунды ])
+]).then(
+  function (res) {
+    // функция `foo(..)` выполнена вовремя!
+    console.log(res);
+  },
+  function (err) {
+    console.log(err);
+    // либо функция `foo()` столкнулась с отказом, либо
+    // просто не завершилась вовремя; проанализировать
+    // `err` для определения причины
+  }
+) */
+// @ Пример 9 -  что выведет и почему?
+
+/* const promise1 = new Promise((resolve, reject) => {});
+
+const promise2 = new Promise((resolve, reject) => {
+  resolve(111);
+  reject(222);
+});
+const promise6 = new Promise((resolve, reject) => {
+  resolve(111);
+  reject(222);
+}).finally((res)=>{
+  console.log(res);
+}, )
+
+const promise3 = new Promise((resolve, reject) => {
+  reject(222);
+  resolve(111);
+})
+
+const promise4 = new Promise(function (resolve, reject) {
+  foo.bar(); // `foo` не определено, ошибка!
+  resolve(42); // в эту точку управление не передается :(
+}).then((res)=>{})
+
+const promise5 = new Promise(function (resolve, reject) {
+  foo.bar(); // `foo` не определено, ошибка!
+  resolve(42); // в эту точку управление не передается :(
+}).then((res)=>{}, (err)=>{})
+
+console.log(promise1);
+console.log(promise2);
+console.log(promise3);
+console.log(promise4);
+console.log(promise5); */
+
+
+// @ Пример 10 -  что выведет и почему?
+
+var p = new Promise( function(resolve,reject){
+  foo.bar();  // `foo` не определено, ошибка!
+  resolve( 42 );  // в эту точку управление не передается :(
+} );
+p.then(
+  function fulfilled(){
+      // в эту точку управление не передается :(
+  },
+  function rejected(err){
+      // здесь `err` будет объектом исключения `TypeError`
+      // из строки `foo.bar()`.
+  }
+);
+
+
+// const todos = fetch("https://jsonplaceholder.typicode.com/todos/1");
+// .then(response => response.json())
+// .then(json => console.log(json))
+
+// console.log(todos);
 
 // § Ссылки
 // ? https://blog.greenroots.info/task-queue-and-job-queue-deep-dive-into-javascript-event-loop-model
+
+   console.log(history.push("/123"));
