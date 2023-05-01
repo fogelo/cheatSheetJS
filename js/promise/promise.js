@@ -30,6 +30,7 @@ function loadScript(src, callback) {
 //§     Асинхронный код. Как работает EventLoop. Promise
 
 /* 
+
 //@ИМИТАЦИЯ АСИНХРОННОСТИ
 let a = 7
 
@@ -46,7 +47,7 @@ console.log(a);
 
 
 /* 
-//@ИСПОЛЬЗЫУЕМ ПРОМИС
+// @ИСПОЛЬЗЫУЕМ ПРОМИС
 
 let a = 7
 console.log(a);
