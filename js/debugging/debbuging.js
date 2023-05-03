@@ -1,6 +1,5 @@
 //  @ https://developer.chrome.com/docs/devtools/ - ссылка на официальную документацию под девтулзам хрома
 
-
 /* 
 
  Идея отладки заключается в том, что внутр программного кода можно устанавливать брейкпоинты (точки останова), чтобы остановить выполнение программы
@@ -33,22 +32,46 @@
 ?Можно задавать условные точки останова, которые будут срабатывать только при выполнении определенного условия.
 */
 
+
+
+const bbb = 888
+const aaa = 555;
+
 function third(str) {
-    return str + "Orlov ";
-  }
-  
-  function second() {
-    return third("Anton");
-  }
-  function first() {
-    var name = second();
-    console.log("My name is " + name);
-  }
-  
-  first()
+  const aaa = 666;
+  return str + "Orlov ";
+}
+
+function second() {
+  const aaa = 777;
+  return third("Anton ");
+}
+function first() {
+  var name = second();
+  return name
+  console.log("My name is " + name);
+}
+
+const name = first();
 
 
-//  ? Вопросы 
+
+/* 
+@ ст1 - https://learn.javascript.ru/debugging-chrome
+
+пока исполнение поставлено на паузу мы можем посмотреть текущие значения переменных, выполнить команды в консоли
+
+*/
+
+
+
+/* 
+
+1) Стили для элементов можно писать прямо в девтулах браузера и сразу смотреть как это повлияет на элементы.
+*/
+
+
+//  ? Вопросы
 /* 
 1) Что такое отладка? Что она дает? Для чего она нужна?
 

@@ -1109,7 +1109,7 @@ JS - это однопоточный язык программироания с 
 @ -выступление о eventloop https://www.youtube.com/watch?v=8aGhZQkoFbQ
 
 
-
+@ст8 - хорошие схемы
 Каждый поток (thread) получет свой цикл событий, таким образом каждый web worker получает свой цикл событий. 
 */
 
@@ -1149,3 +1149,8 @@ it.next(value)
 
 console.log(value); */
 
+// const todos = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+// console.log(todos);
+
+const arr = [1,2,3,4]
+console.log(arr.at());

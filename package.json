@@ -1,0 +1,22 @@
+{
+  "name": "cheatsheetjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "before-distribution.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fogelo/cheatSheetJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fogelo/cheatSheetJS/issues"
+  },
+  "homepage": "https://github.com/fogelo/cheatSheetJS#readme",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
