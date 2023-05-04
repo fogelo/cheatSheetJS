@@ -19,3 +19,5 @@ function a() {
     while (new Date().getTime() < fiveSecondsLater) {}
 }
 a();
+
+
