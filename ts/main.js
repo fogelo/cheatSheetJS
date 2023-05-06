@@ -1,27 +1,10 @@
-var city = "new york city";
 function add(a, b) {
     return a + b;
 }
-function calculateLength(v) {
-    return Math.sqrt(v.x * v.x + v.y * v.y);
+if (typeof p === "object") {
 }
-var v = { x: 3, y: 4, name: "Zee" };
-calculateLength(v);
-var age;
-age = "12";
-age = "12";
-age = 15;
-age = {};
-var obj1 = { str: "hello", num: 42 };
-obj.num;
-var obj2 = { str: "hello", num: 42 };
-obj2.str;
-if (typeof p === 'object') { }
-var aaa = fetch("asdf");
-var ps = {
-    name: 'Alan Turing',
-    birth: new Date('1912/06/23'),
-    death: new Date('1954/06/07'),
-    xxx: "adfasdf"
-};
+var list1 = [1, 2];
+var tuple1 = list1;
+var list2 = [1, 2];
+var tuple2 = list2;
 //# sourceMappingURL=main.js.map

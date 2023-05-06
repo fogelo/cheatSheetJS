@@ -4,10 +4,12 @@
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "strictNullChecks": true
   },
   "files": [
     "./ts/main.ts",
+    "./ts/diff.ts",
   ],
   "include": ["ts/**/*"],
 }
