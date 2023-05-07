@@ -145,7 +145,7 @@ function f4(p1: any, p2: any): any {
     return p1;
   }
 }
-f3(1, "12");
+f4(1, "12");
 
 // § Примитивные типы
 /* 
@@ -161,15 +161,208 @@ f3(1, "12");
 10) never 
 11) unknown 
 12) enum
+14) object
+15) tuple
+
+непримитивные типы (ссылочные)
+1) [] или Array
+2) Function
+3) Object 
 
 enum - набор логически связанных констант. В качестве значений могут выступать как числа так и строки. Это конструкция состоящая из 
 именованых констант
 */
 
-
 // § union (объединение) и intersection (пересечение)
 
+class A1 {
+  a: number;
+  d: number;
+}
+class B1 {
+  b: string;
+}
+class C1 {
+  c: boolean;
+}
+
 /* 
-объединение 
+объединение -  тип значения должен удоволетворять хотябы одному из классов
+*/
+let v1: A1 | B1 | C1 = { a: 1, b: "123", c: false };
+
+/* 
+пересечение - должны быть все поля из классов, мы подбираем значение для удоволетворения такого пересечения множеств
 */
 
+let v2: A1 & B1 & C1 = { a: 1, b: "123", c: false, d: 2 };
+
+// § type, typeof
+
+// § tuple
+// @Пример 5. типизирование параметров функции с помощью оператора rest и кортежа
+function f5(...rest: [number, string, boolean]): void {}
+
+// § interface
+/* 
+interface позволяет подмножесто множества object
+
+implements - это реальизация интерфейса
+*/
+
+// @Пример 6. interface можно можно объявлять как в контексте модуля так и вконтексте функции и или метода
+// в контексте модуля
+interface I1 {}
+
+// в контексте класса
+class C2 {
+  public method(): void {
+    interface C2 {}
+  }
+}
+// в контексте функции
+function f6(): void {
+  interface F6 {}
+}
+
+// @ Пример 7. реализация интерфейса (implements)
+/* 
+Класс реализующий интерфейс должен реализовывать его в полной мере. 
+Все поля интерфейса являются public и их поля не могут содержать static
+
+Несмотря на то, что в интерферйсе можно декларировать поля и методы, в нем нельзя декларировать свойства get и set (аксессоры (геттеры и сеттеры))). Но поле заделарированное в интерфейсе в классе может быть аксессором.
+
+
+*/
+
+interface IAnimal {
+  id: string;
+  nickname: string;
+  execute(command: string): void;
+}
+interface IOviparous {} // указывает на возможность откладывать яйца
+
+class Dog implements IAnimal {
+  nickname: string;
+  get id() {
+    return "123";
+  }
+  execute(command: string): void {}
+}
+
+// один класс может реализовывать сколько угодно интерфейсовъ
+interface IAnimal {}
+
+class Bird implements IAnimal, IOviparous {
+  nickname: string;
+  get id() {
+    return "123";
+  }
+  execute(command: string): void {}
+}
+
+//класс Eagle расширяет класс Bird, который реализует интерфейс IAnimal
+class Eagle extends Bird implements IAnimal {}
+
+// Интерфейсы могут расширятся
+interface IIdentifiable {}
+interface ILiving {}
+interface IAnimal extends IIdentifiable, ILiving {}
+
+// Интерфейс может расширить класс
+class Car {
+  nickname: string;
+  age: number;
+}
+
+interface IAudi extends Car {}
+
+// слияние интерфейсов
+interface User {
+  name: string;
+}
+
+interface User {
+  age: number;
+}
+/*
+как видит компилятор
+interface User {
+    name: string;
+    age: number;
+}
+*/
+
+// § Объектные типы с индексными членами. Или определение динамические
+// @ Пример 8. пример как можно использовать динамическое определение типов
+
+interface A2 {
+  [key: string]: string;
+  [key: number]: string;
+}
+let a: A2 = {
+  validKeyDeclareStatic: "value", // Ok, значение принадлежит к string
+  invalidKeyDeclareStatic: 0, // Error, значение должно быть совместимым с типом string
+};
+
+a.validKeyDefineDynamicKey = "value"; // Ok
+a.invalidKeyDefineDynamicKey = 0; // Error, значение должно быть совместимым с типом string
+a[0] = "value";
+
+// § Модификаторы доступа (Access Modifiers)
+
+/* 
+Модификаторы доступа - это ключевые слова, с пмощью которых осуществляется управление сокрытием данных в классе. 
+После компиляции typescript от них не остается и следа
+
+В typescript существует 3 модификтора доступа.
+1) public - если не объявлен другой, то этот модификтор используется по умолчанию
+public свойства доступны в определящих их классах, классах потомках и экземплярах классов
+2) protected - свойства доступны только внутри определяющего класса и его потомков (в экземпляре нет)
+3) private - свойства доступны только внутри класса в котором определены.
+*/
+
+//@ Пример 9. Для классов существует сокращенная запись для объявления полей
+// такую запись
+class BirdEntity {
+    public name: string;
+    public age: number;
+    public isAlive: boolean;
+  
+    constructor(name: string, age: number, isAlive: boolean) {
+      this.name = name;
+      this.age = age;
+      this.isAlive = isAlive;
+    }
+  }
+
+// Можно сократить до такой
+class FishEntity {
+    constructor(
+      public name: string,
+      protected age: number,
+      private isAlive: boolean
+    ) {}
+  }
+// В js есть нативный способ задания private полей
+  class Developer {
+    #isLife: boolean = true; // защищенное поле класса
+  
+    get isLife() {
+      return this.#isLife;
+    }
+  }
+
+  // § Модификатор readonly
+  /* 
+  readonly - модификатор, который запрещает изменение полей объекта. Аналог const для свойств объекта
+  */
+
+//@ Пример 10. исользование readonly
+interface IAnimal {
+    readonly name: string;
+  }
+  
+  class Animal {
+    public readonly name: string = 'name';
+  }
