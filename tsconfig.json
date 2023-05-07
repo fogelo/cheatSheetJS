@@ -5,11 +5,12 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    // "outDir": "./ts/out"
   },
   "files": [
-    "./ts/main.ts",
-    "./ts/diff.ts",
+    "ts/main/main.ts",
+    "ts/diff/diff.ts",
   ],
   "include": ["ts/**/*"],
 }

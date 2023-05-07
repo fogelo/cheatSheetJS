@@ -199,3 +199,6 @@ function printAnything<T>(a: T) {
 }
 
 printAnything<string>("asf");
+
+
+
