@@ -317,20 +317,26 @@ keyof (A|B) = (keyof A) & (keyof B)
 
 // @ Пример 11. массивы и кортежи.
 
-const list1 = [1, 2]; // Тип number[] 
+const list1 = [1, 2]; // Тип number[]
 const tuple1: [number, number] = list1;
 /* 
 тип number[] не может быть назначени для [number, number] поскольку не является его подмножеством, а нвооборот сожео
 */
 
-const list2: [number, number]  = [1, 2]; // Тип number[] 
+const list2: [number, number] = [1, 2]; // Тип number[]
 const tuple2: [number, number, number] = list2;
 /* 
 Нет, и по весьма интересной причине. Вместо того чтобы моделировать пару чисел как {0: number, 1: number}, TypeScript моделирует ее как {0: number, 1: number, length: 2}. Это полезно — вы можете проверить длину кортежа, и она исключит лишнее назначение.
 */
 
-
 // @ Пример 12. Что будет и почему?
 
-type T = Exclude<string|Date, string|number>; // Тип Date
+type T = Exclude<string | Date, string | number>; // Тип Date
 type NonZeroNums = Exclude<number, 0>; // Тип все еще просто number
+
+
+function fancyAlert(arg) {
+	if (arg) {
+		$.facebox({ div: "#foo" });
+	}
+}

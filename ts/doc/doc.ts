@@ -325,44 +325,368 @@ public свойства доступны в определящих их клас
 //@ Пример 9. Для классов существует сокращенная запись для объявления полей
 // такую запись
 class BirdEntity {
-    public name: string;
-    public age: number;
-    public isAlive: boolean;
-  
-    constructor(name: string, age: number, isAlive: boolean) {
-      this.name = name;
-      this.age = age;
-      this.isAlive = isAlive;
-    }
+  public name: string;
+  public age: number;
+  public isAlive: boolean;
+
+  constructor(name: string, age: number, isAlive: boolean) {
+    this.name = name;
+    this.age = age;
+    this.isAlive = isAlive;
   }
+}
 
 // Можно сократить до такой
 class FishEntity {
-    constructor(
-      public name: string,
-      protected age: number,
-      private isAlive: boolean
-    ) {}
-  }
+  constructor(
+    public name: string,
+    protected age: number,
+    private isAlive: boolean
+  ) {}
+}
 // В js есть нативный способ задания private полей
-  class Developer {
-    #isLife: boolean = true; // защищенное поле класса
-  
-    get isLife() {
-      return this.#isLife;
-    }
-  }
+class Developer {
+  #isLife: boolean = true; // защищенное поле класса
 
-  // § Модификатор readonly
-  /* 
+  get isLife() {
+    return this.#isLife;
+  }
+}
+
+// § Модификатор readonly
+/* 
   readonly - модификатор, который запрещает изменение полей объекта. Аналог const для свойств объекта
   */
 
 //@ Пример 10. исользование readonly
 interface IAnimal {
-    readonly name: string;
-  }
-  
-  class Animal {
-    public readonly name: string = 'name';
-  }
+  readonly name: string;
+}
+
+class Animal {
+  public readonly name: string = "name";
+}
+
+//  § Обобщения (generics)
+
+/* 
+Обобщенное программирование (Generic Programming) - это подход, при котором алгоритмы могут работать с данными, принадлежащими к 
+разным типам данных без изменения декларации (описания типа).
+Обощение это - параметризированный тип, повзоляющий объявлять параметры типа, являющейся временной заменой конкретных типов,конкретизация которых будет выполнена в момент создания экземпяра.
+Обобщения позволяют писать многократно испльзуемый код
+
+*/
+
+/* 
+Обощения в ts могут указаны для типов определяемых с помощью
+1) type
+2) interface
+3) class
+4) function (function declaration, function expression, method)
+*/
+
+//@ Пример 11. Простейшее применеие обобщения
+interface T3<T1, T2> {
+  id: T1;
+  date: T2;
+}
+let date1: T3<number, string> = { id: 1, date: "march" };
+let date2: T3 = {}; //предупредит, что типу нужны аргументы
+
+/* 
+Для параметров типов есть соглашение по буковкам:
+T - Type
+K - Key
+V - Value
+P - property
+Z - для полиморфного this
+Кроме того не исключены случаи использования полных имен
+
+
+В случаях, когда класс/интерфейс расширяет другой класс/интерфейс, который объявлен как обобщенный, потомок обязан указать типы для своего предка. 
+*/
+
+// Можно указывать типы по умолчанию.
+interface T4<T1 = string, T2 = number> {
+  id: T1;
+  date: T2;
+}
+let date3: T4 = { id: "123", date: 123 };
+
+//  § Утверждение типов
+
+/* 
+В TS большинство операциий с несоответсвием типов приходится на работу с dom
+
+В основе составляющих иерархию dom-дерева объектов лежит базовы тип Node, наделенный минимальными признаками для построения коллекции.
+
+Базовый тип Node, в том числе расширяет и тип Element, который является базоывм для всех элементов dom дерева и обладает знакомыми
+всем признаками, необходимыми для работы с элементами dom (такими как attributes, classList, размеры client).
+Элементы dom дерева можно разделить на те что не отображаются (script, link) и те что отображаются (div, body). Последние имеют в своей
+иерархии наследования тип HTMLElement, расширяющий Element, который привносит признаки присущие отображаемым объектам (координаты, 
+    стили, dataset)
+
+*/
+
+//@ Пример 12. Типизирование элемента полученнго с помощью querySelector
+/* 
+утверждение типов при получении dom элементов это то где этот механим нужно использовать.
+Выражения, требующие утверждения типа при работе с dom api — это неизбежность.
+*/
+const e1 = document.querySelector("#div1");
+console.log(e1);
+
+/* 
+по умолчанию будет тип Element, так как теоретически может быть получени как отображаемый объект так и нет.
+
+Утверждение типов (type assertion) - процесс, вынуждающий ts пересмотреть свое отншение к какому-либо типу. Утверждая тип, разработчик
+говорит компилятору - поверь мне, я знаю, что делаю
+*/
+
+/* 
+?Подпример: одним из способов утверждения типов является механизм утверждения через угловые скобки, заключающий в себе конкретный тип, к 
+?которому будет выполнено преобразование
+*/
+const e2 = <Node>document.querySelector("#div1");
+
+// так можно преобразовать даже и к number (сначала нужно преобразовать к чему-то универсальному any,  unknown, {}, never)
+const e3 = <number>(<never>document.querySelector("#div1"));
+
+//@ Пример 13. Утверждение типов с помощью оператора as
+let el4 = document.querySelector("#div1") as HTMLElement;
+el4.dataset.count = (0).toString();
+
+el4.addEventListener("click", ({ target }) => {
+  let element = target as HTMLElement;
+  let count: number = element.dataset.count as any as number;
+
+  element.dataset.count = (++count).toString();
+});
+
+//@ Пример 14. Утверждение (приведение) к константе (const assertion)
+type Status1 = 200 | 400;
+type Request1 = { status: Status1 };
+
+let status1 = 200;
+let request1: Request1 = { status: status1 }; // будет ругаться так как для status1 автоматически выведится тип number
+
+//Это можно решить с помщью <> или as
+let request2: Request1 = { status: <Status1>status1 };
+let request3: Request1 = { status: status1 as Status1 };
+
+/* 
+Но лучше воспользовать специальным синтаксисом для таких случаев
+*/
+// так
+let status2 = 200 as const;
+// или так
+let status3 = <const>200;
+let request4: Request1 = { status: <Status1>status3 };
+
+// § Вывод типов
+/* 
+Вывод типов - это механизм, позволяющий сделать процесс разработки на статически типизированном языке typescript более простым
+за счет перекладывания на него рутинной работы по явной аннотации типов.
+
+*/
+
+// @ Пример 15. Вывод примитивных типов
+// объявление с let
+enum Enums {
+  Value,
+}
+
+let v00 = 0; // let v0: number
+let v11 = "text"; // let v1: string
+let v22 = true; // let v2: boolean
+let v33 = Symbol(); // let v3: symbol
+let v44 = Enums.Value; // let v4: Enums
+
+//объявление с readonly и const
+const v000 = 0; // let v0: 0
+const v111 = "text"; // let v1: 'text'
+const v222 = true; // let v2: true
+const v444 = Enums.Value; // let v4: Enums.Value
+
+class Identifier {
+  readonly f0 = 0; // f0: 0
+  readonly f1 = "text"; // f1: 'text'
+  readonly f2 = true; // f2: true
+}
+
+// § Typescript: ключевые слова keyof (Lookup types) и in (key in) (Mapped Types)
+
+// @ Пример 15. Mapped Types использоваине оператора in
+// вот такую
+type Foo1 = {
+  hello: string;
+  world: string;
+};
+
+// можно записать вот так
+type Foo2 = {
+  [K in "hello" | "world"]: string;
+};
+
+// @ Пример 16. Доступ к типу по ключу
+type Foo3 = Foo1["hello"]; // тип string
+
+// § Условные типы (T extends U ? T1 : T2)
+/* 
+
+Условные типы - это типы, способные принимать одно из двух значений, основываясь на принадлежности одного типа к другому. Условные типы
+семантически схожы с тренарым оператором.
+
+extends - в данном случае переводится как "является подмножеством" или "принадлежит"
+
+Когда может зависеть итоговый тип переменной от того принадлежит ли какое-то множество в другому
+*/
+
+// § Readonly, Partial, Required, Pick, Record
+// @ Пример 17. Использование Readonly - нужно использовать в функциях, которые применяют объект
+/* 
+Readonly - это интерфейс, который принимает тип (интерфейс) и возвращет его же, но все поля будут с модификатором readonly (
+    кроме тех для которых уже был задан модификтор - это называется гомоморфностью
+)
+*/
+// lib.es6.d.ts
+
+/* 
+
+Вот так readonly реализован.
+IReadonly принимает параметр T. keyof T возвращает множество (тип) "name" | age. Это выражение по сути является циклом, 
+итераций будет столько сколько ключей вернет keyof. То есть в итоге полей в новом интерфейсе будет столько же. Запись T[P] - возвращает
+тип из интерфейса(типа) T по ключу. 
+*/
+type IReadonly<T> = {
+  readonly [P in keyof T]: T[P]; // что происходит в строке?
+};
+
+interface IPerson1 {
+  name: string;
+  age: number;
+}
+function immutableAction(person: Readonly<IPerson1>) {
+  person.name = "new Name";
+}
+
+// @ Пример 18. Использование Partial - делает все поля необязательными
+// Реализован вот так
+type IPartial<T> = {
+  [P in keyof T]?: T[P];
+};
+
+// @ Пример 19. Использование Required - делает все необязательные поля обязательными
+type IRequired<T> = {
+  [P in keyof T]-?: T[P];
+};
+
+// @ Пример 20. Использование Pick - отфильтровывает поля
+type IPick<T, K extends keyof T> = {
+  [P in K]: T[P];
+};
+interface IT {
+  a: number;
+  b: string;
+  c: boolean;
+}
+
+/**
+ * Поле "с" отфильтровано ->
+ *
+ * type T0 = { a: number; b: string; }
+ */
+type T0 = Pick<IT, "a" | "b">;
+
+// @ Пример 21. Использование Record - отфильтровывает поля
+
+type IRecord<K extends string, T> = {
+  [P in K]: T;
+};
+
+//  Эти 2 записи идентичны
+interface Foo4 {
+  payload: {
+    [key: string]: string;
+  };
+}
+
+interface Foo5 {
+  payload: Record<string, string>;
+}
+
+// § Exclude, Extract, NonNullable, ReturnType, InstanceType, Omit
+/* 
+Это несколько часто требующихся условных типов
+*/
+
+// @ Пример 21. Exclude (исключает из T признаки прсущие U) type Exclude<T, U> = T extends U ? never : T;
+let ex1: Exclude<number | string, number | boolean>; // let v0: string
+interface User10 {
+  id: string;
+  name: string;
+  time: number;
+}
+
+interface Developer10 {
+  id: string;
+  name: string;
+  exp: number;
+}
+
+type Foo6 = Pick<User10, Exclude<keyof User10, keyof Developer10>>;
+let foo6: Foo6 = { time: 123 };
+
+// @ Пример 22. Extract (оставляет общие для двух типов признаки) type Extract<T, U> = T extends U ? T : never;
+let ex2: Extract<number | string, number | boolean>; // let v1: number
+
+// @ Пример 23. NonNullable (удаляет типы null и undefined)
+/* 
+type NonNullable<T> = T extends null | undefined
+  ? never
+  : T;
+*/
+
+let non1: NonNullable<string | number | undefined | null>; // let v2: string | number
+
+// @ Пример 24. ReturnType (получить тип значения, возвращаемого функцией)
+/* 
+type ReturnType<
+  T extends (...args: any) => any
+> = T extends (...args: any) => infer R ? R : any;
+*/
+let ret1: ReturnType<() => number | string>; // let v1: string|number
+
+// @ Пример 25. InstanceType (получить через тип класса тип его экземпляра)
+
+// @ Пример 26. Omit (исключить из T признаки, ассоциированные с ключами, перечисленными множеством K)
+/* 
+// lib.d.ts
+
+type Omit<T, K extends string | number | symbol> = {
+  [P in Exclude<keyof T, K>]: T[P];
+};
+*/
+
+type Person123 = {
+  firstName: string;
+  lastName: string;
+
+  age: number;
+};
+type PersonName = Omit<Person123, "age">;
+
+
+// § Декларации
+
+/* 
+К проекту можно подключать декларации. Они размещаются в файлах с расширением .d.ts и состоят только из объявлений типов и состоят 
+только из объявлений типов, полностью повторяющих программу до момента компиляции
+
+? Установка деклараций с помощью @types
+Если декларация распространяется отдельно от библиотеки, то она скорей всего попадает в огромный репозиторий DefinitelyTyped, 
+содержащий огромное колличество деклараций. 
+
+
+Для того чтобы установить требующуюся декларацию, в терминале необходимо выполнить команду: npm i -D @types/name
+*/

@@ -255,3 +255,7 @@ var myObject = {
 ("b" in myObject); // false
 myObject.hasOwnProperty("a"); // true
 myObject.hasOwnProperty("b"); // false
+
+
+
+//  Оператор in
