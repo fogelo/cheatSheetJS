@@ -3,21 +3,24 @@
 //можно по идее не указывать при обьявлении функции, что мы в нее передаем, а просто воспользоваться ключевым словом
 //arguments, который будет представлять собой массивоподобную коллекцию
 function useArgs() {
-    console.log(arguments)
+  console.log(arguments);
 }
 
-useArgs(1, 2, 3, 4, 'hello')
-
+useArgs(1, 2, 3, 4, "hello");
 
 // не знал что можно сделать такой цикл с помощью объекта Date
 function documentClickHandler() {
-    console.log('CLICK!!!');
+  console.log("CLICK!!!");
 }
-document.addEventListener('click', documentClickHandler);
+document.addEventListener("click", documentClickHandler);
 function a() {
-    const fiveSecondsLater = new Date().getTime() + 5000;
-    while (new Date().getTime() < fiveSecondsLater) {}
+  const fiveSecondsLater = new Date().getTime() + 5000;
+  while (new Date().getTime() < fiveSecondsLater) {}
 }
 a();
 
-
+//проста имитация задержки
+const start = new Date();
+while (new Date() - start < 5000) {
+  console.log(new Date() - start < 5000);
+}

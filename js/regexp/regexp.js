@@ -62,7 +62,7 @@ console.log('result: ', result);
 // console.log('result: ', result)
 
 //// поиск позиции элемента (индекса с которого начинается искомое) с помощью регулярного выражения
-/* const str = '.... телефон 12345. почта ....'
+/* cont str = '.... телефон 12345. почта ....'
 const regexp = /\d{5}/
 const result = str.search(regexp)
 console.log('result: ', result);  // 13 */ // если бы не нашел выдал бы -1
